@@ -1,0 +1,53 @@
+#include <iostream>
+
+int main() {
+ 
+    //same output different method
+    std::cout << "Hello, World!\n";
+    std::cout << "Hello, World!\x0A";
+    std::cout << "Hello, World!"<<std::endl;
+    
+    puts("give me a number");
+    int number1;
+    std::cin >> number1;
+    
+    puts("give me another number");
+    int number2;
+    std::cin >> number2;
+    
+    std::cout << "your numbers are "<< number1 << "," << number2 << std::endl;
+    std::cout << number1 << "+" << number2 << " = " << number1+number2 << std::endl;
+    //dynamic casting -- Run time
+    std::cout << "the average of these two numbers are "<< (double) (number1+number2)/2<< std::endl;
+    //static casting -- compile time (better way:check it before run)
+    std::cout << "the average of these two numbers are "<< static_cast<double> (number1+number2)/2 << std::endl;
+    
+    std::cout << "------------------" << std::endl;
+    std::cout << "size of integer "<< sizeof(int) << " bytes" << std::endl;
+    std::cout << "size of char "<< sizeof(char) << " bytes" << std::endl;
+    std::cout << "size of double "<< sizeof(double) << " bytes" << std::endl;
+    std::cout << "size of float "<< sizeof(float) << " bytes" << std::endl;
+    std::cout << "size of long "<< sizeof(int) << " bytes" << std::endl;
+    std::cout << "size of long long "<< sizeof(int) << " bytes" << std::endl;
+    std::cout << "size of long double "<< sizeof(int) << " bytes" << std::endl;
+    std::cout << "size of short "<< sizeof(int) << " bytes" << std::endl;
+    
+    
+    std::cout << "-------MIN-------" << std::endl;
+    std::cout << "MIN value of integer "<< INT_MIN << std::endl;
+    std::cout << "MIN value of char "<< CHAR_MIN  << std::endl;
+    std::cout << "MIN value of long "<< LONG_MIN  << std::endl;
+    std::cout << "MIN value of long long int "<< LONG_LONG_MIN  << std::endl;
+    
+    
+    std::cout << "-------MAX-------" << std::endl;
+    std::cout << "MAX value of integer "<< INT_MAX << std::endl;
+    std::cout << "MAX value of char "<< CHAR_MAX << std::endl;
+    std::cout << "MAX value of long "<< LONG_MAX << std::endl;
+    std::cout << "MAX value of long long int "<< LONG_LONG_MAX << std::endl;
+    
+    
+    
+    
+    return 0;
+}

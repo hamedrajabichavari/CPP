@@ -71,5 +71,24 @@ int main() {
     std::cout << string6 << std::endl;
     
     
+    char string8[] = "assign anything to here"; //the last char is \0
+    //for range loop
+    for (char temp : string8) {
+        std::cout << temp << " ";
+    }
+    
+    std::cout << std::endl;
+    
+    int i = 0;
+    while(string8[i] != '\0'){
+        std::cout << string8[i] << " ";
+        i += 1;
+    }
+    std::cout << std::endl;
+    
+    for (int i = 0 ; i < sizeof(string8)/sizeof(char); i += 1) {
+        std::cout << string8[i] << " ";
+    }
+    
     return 0;
 }

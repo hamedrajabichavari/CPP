@@ -13,10 +13,7 @@
 #include "morefunctions.hpp"
 
 
-void mimosa(std::string oj = "orange juice", std::string ch = "champaine"){
-    
-    std::cout << oj << " + " << ch << " is mixing "<<std::endl;
-}
+
 
 
 int main() {
@@ -39,6 +36,7 @@ int main() {
     
     mimosa();
     mimosa("apple juice" , "vodka");
+    mimosa("mango");
         
     stackMenuWithPointer();
     

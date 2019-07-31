@@ -14,5 +14,5 @@
 bool isPrime(int value);
 void addSomeStars(std::string name , char ch);
 std::string reverseTheWord(std::string name);
-void mimosa(std::string , std::string);
+void mimosa(std::string = "orange juice", std::string = "champaign");
 #endif /* morefunctions_hpp */

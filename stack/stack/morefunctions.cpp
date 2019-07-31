@@ -61,3 +61,7 @@ std::string reverseTheWord(std::string name){
 
 }
 
+void mimosa(std::string oj , std::string ch){
+    
+    std::cout << oj << " + " << ch << " is mixing "<<std::endl;
+}

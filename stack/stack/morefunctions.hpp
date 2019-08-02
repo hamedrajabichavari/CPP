@@ -21,4 +21,8 @@ int modify (int a,int &b, int &c);
 void testModify();
 void forEachLoop();
 void printMultiplicationTable(int, int);
+long long int fibo(unsigned int order);
+void testFibo();
+long long int factorial(unsigned int number);
+void testFactorial();
 #endif /* morefunctions_hpp */

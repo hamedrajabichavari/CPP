@@ -138,4 +138,43 @@ for (int i=0 ; i< rowVal ; i+=1) {
     
 }
 
+//fibonatchi
+// 0 1 1 2 3 5 8 13 ...
+long long int fibo(unsigned int order){
+    if(order == 0 ){
+        return 0;
+    }
+    if(order == 1 ){
+        return 1;
+    }
+    return fibo(order-1) + fibo(order-2);
+    
+}
+void testFibo(){
+    for (int i=0; i<10; i += 1) {
+        std::cout << fibo(i)<< " ";
+    }
+    
+}
+
+long long int factorial(unsigned int number){
+    
+    // 0! = 1
+    if(number == 0 ){
+        return 1;
+    }
+    // 1! = 1
+    if(number == 1 ){
+        return 1;
+    }
+    return number * factorial(number - 1);
+}
+
+void testFactorial(){
+    for (int i=0; i<10; i += 1) {
+        std::cout << factorial(i)<< "  ";
+    }
+    
+}
+
 

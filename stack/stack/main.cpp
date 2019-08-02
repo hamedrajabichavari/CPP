@@ -11,16 +11,51 @@
 #include "functions.hpp"
 #include <stack>
 #include "morefunctions.hpp"
-
+#include <vector>
 
 
 
 int main() {
     
+    //Array size and type!!!
+    //flexible array---vector
+    std::vector<std::string> students {"sina","siamak","hamed","mariana","jose","daniel"};
+    
+    std::cout << "---there are "<< students.size() << " students---" << std::endl;
+    std::cout << "---these are the students---" << std::endl;
+        for (auto student : students){
+            
+            std::cout << student << " ";
+        }
+     std::cout << std::endl;
+    
+    std::cout<< "who is the new student?";
+    std::string newStudent;
+    std::cin >> newStudent;
+    students.push_back(newStudent);
+    
+    std::cout << "--------new list--------"<<std::endl;
+    std::cout << "---there are "<< students.size() << " students---" << std::endl;
+        for (auto student : students){
+            std::cout << student << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "----------------"<< std::endl;
+    
+ 
+    
+    testFactorial();
+    std::cout << "----------------"<< std::endl;
+
+    
+    
+    testFibo();
+    std::cout << "----------------"<< std::endl;
+
     
     printMultiplicationTable(11,11);
     std::cout << "----------------"<< std::endl;
-   
+    
    
     forEachLoop();
     std::cout << "----------------"<< std::endl;

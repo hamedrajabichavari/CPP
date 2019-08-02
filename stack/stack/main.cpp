@@ -15,30 +15,35 @@
 
 
 
-
 int main() {
     
-    std::cout << std::boolalpha;
-
-    for(int i =0 ; i<20 ; i+= 1)
-        //isPrime(i) means isPrime(i) is true (in morefunctions.cpp function definition)
-        if( isPrime(i)){
-            std::cout << i << std::endl;
-        }
     
-        
-        addSomeStars("hello",'*');
+    printMultiplicationTable(11,11);
+    std::cout << "----------------"<< std::endl;
+   
+   
+    forEachLoop();
+    std::cout << "----------------"<< std::endl;
+   
     
+    //using test... to keep the main.cpp clean
+    
+    testModify();
+    std::cout << "----------------"<< std::endl;
+    
+    testIsPrime();
+    std::cout << "----------------"<< std::endl;
+    
+    addSomeStars("hello",'*');
+    std::cout << "----------------"<< std::endl;
     
     reverseTheWord("hamedRajabi");
     std::cout << reverseTheWord("hamedRajabi") <<std::endl;
+    std::cout << "----------------"<< std::endl;
     
+    testMimosa();
+    std::cout << "----------------"<< std::endl;
     
-    mimosa();
-    mimosa("apple juice" , "vodka");
-    mimosa("mango");
-        
     stackMenuWithPointer();
-    
-   
+    std::cout << "----------------"<< std::endl;
 }

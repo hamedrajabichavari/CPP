@@ -35,7 +35,7 @@ int main() {
     
     //ternary operator
     // ( condition ) ? true : false
-    (fluffy.single) ? std::cout << "this cat is single" << std::endl : std::cout << "this cat is not single" << std::endl;
+    (fluffy.getSingle()) ? std::cout << "this cat is single" << std::endl : std::cout << "this cat is not single" << std::endl;
     
     
     return 0;

@@ -1,0 +1,6 @@
+punct          315
+digit          0
+space          1469
+upper          227
+lower          5970
+alphabet       6197

@@ -18,8 +18,6 @@ void creatRandomFile(){
     std::ofstream writeFile;
     writeFile.open("../files/myFile.txt");
     
-    writeFile << one.toString();
-    writeFile.close();
 }
 
 void addRecord(){
@@ -28,15 +26,13 @@ void addRecord(){
     std::ofstream writeFile;
     writeFile.open("../files/myFile.txt",std::ios::app);
     
-    //    writeFile << one.toString();
-    //    writeFile.close();
-    
     int newId;
     std::string newPhone;
     std::string newName;
     std::string newLastName;
     std::string newEmail;
     bool newGender;
+    
     std::cout << "what is the id? " << std::endl;
     std::cin >> newId;
     std::cout << "what is the phone? " << std::endl;
@@ -54,4 +50,73 @@ void addRecord(){
     writeFile << newOne.toString()<<"\n";
     writeFile.close();
 
+}
+
+//void modifyRecord(){
+// 
+//    
+//    std::ifstream readFile;
+//    readFile.open("../files/myFile.txt");
+//    std::string searchName;
+//    std::cout << "search by name : what is the name? " << std::endl;
+//    std::cin >> searchName;
+//    
+//    std::cout << " what is the new name? " << std::endl;
+//    std::cin >> newName;
+//    
+//    std::string line;
+//    while (std::getline(readFile,line)) {
+//        
+//        if(line.find(searchName) < 10000  ){
+//           line.replace(line.find(searchName),searchName.length(),newName);
+//        }
+//    }
+//}
+//
+//
+//}
+
+
+void deleteRecord(){
+    
+    std::ifstream readFile;
+    readFile.open("../files/myFile.txt");
+    if (readFile.fail()) {
+        std::cerr << "it is not readable" << std::endl;
+    }
+    std::string searchName;
+    std::cout << "search by name : what is the name? " << std::endl;
+    std::cin >> searchName;
+    
+    std::string line;
+    while (std::getline(readFile,line)) {
+        
+        if(line.find(searchName) < 10000  ){
+            line.erase(line.begin(), line.end());
+//            line.erase();
+        }
+    }
+}
+
+
+
+
+void searchRecord(){
+    
+    std::ifstream readFile;
+    readFile.open("../files/myFile.txt");
+    if (readFile.fail()) {
+        std::cerr << "it is not readable" << std::endl;
+    }
+    std::string searchName;
+    std::cout << "search by name : what is the name? " << std::endl;
+    std::cin >> searchName;
+    
+                std::string line;
+                while (std::getline(readFile,line)) {
+                    //"10213 hamed".find("hamed");
+                    if(line.find(searchName) < 10000  ){
+                        std::cout << line << std::endl;
+                    }
+                }
 }

@@ -29,7 +29,7 @@ int main() {
         int choice;
         do
         {
-            printf("1.Create Random file | 2.Add record | 3.Modify record | 4.Delete Record | 5.Search Record | 6.Exit ");
+            printf("1.create Random File | 2.add record | 3.modify record | 4.delete Record | 5.search Record | 6.Exit ");
             scanf("%d", &choice);
 
             switch (choice)
@@ -42,13 +42,13 @@ int main() {
                     addRecord();
                     break;
                 case 3:
-//                    ModifyRecord;
+//                    modifyRecord;
                     break;
                 case 4:
-//                    DeleteRecord();
+                    deleteRecord();
                     break;
                 case 5:
-//                    SearchRecord();
+                    searchRecord();
                     break;
                 case 6:
                     break;

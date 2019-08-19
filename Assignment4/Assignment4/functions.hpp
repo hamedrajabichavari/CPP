@@ -14,5 +14,7 @@
 #pragma once
 void creatRandomFile();
 void addRecord();
+void deleteRecord();
+void searchRecord();
 
 #endif /* functions_hpp */

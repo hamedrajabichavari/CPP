@@ -1,0 +1,149 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "functions.hpp"
+#include "moreFunctions.hpp"
+#include <vector>
+#include <ctype.h>
+#include <iomanip>
+#include "../OOP/Time.hpp"
+#include "../OOP/Account/Account.hpp"
+#include "../OOP/Person/Person.hpp"
+#include <sstream>
+
+class Rectangle{
+    
+private:
+    double length;
+    double width;
+public:
+    Rectangle(): length{0}, width{0} {
+    }
+    
+    Rectangle(double length,double width): length{length}, width{width}{
+    }
+    
+    Rectangle(const Rectangle &obj){
+        this->length = obj.length;
+        this->width = obj.width;
+    }
+    ~Rectangle(){}
+    
+    //setters & getters
+    void setLength(double length){
+        this->length = length;
+    }
+    void setWidth(double width){
+        this->width = width;
+    }
+    double getLength(){
+        return this->length;
+    }
+    double getWidth(){
+        return this->width;
+    }
+
+};
+
+//Lambda function (you can creat different function easily)
+void ForEach(std::vector<Rectangle>& rectangles, std::function<void(Rectangle)> func){
+    for(auto item : rectangles){
+        func(item);
+    }
+}
+
+int main(){
+    
+    std::vector<Rectangle> rectangles { Rectangle(4.0,5.0),Rectangle(2.0,6.1),Rectangle(7.3,2.5)};
+    
+    ForEach(rectangles, [](Rectangle rec){
+        std::cout << "area of rectangle : "<< rec.getLength()* rec.getWidth() << std::endl;
+    });
+}
+
+
+
+////Lambda function (you can creat different function easily)
+//void ForEachFunction(const std::vector<int>& numbers, std::function<void(int)> func){
+//    for(int number : numbers){
+//        func(number);
+//    }
+//}
+//int main(){
+//
+//    std::vector<int> numbers = {1,2,3,4,5,6,7,8,9,10};
+//    int passByReference {0};
+//    int passByValue{9};
+//    ForEachFunction(numbers, [&passByReference, passByValue](int number)mutable{
+//        passByValue+=1;
+//        std::cout << "size of this vector is "<< passByValue << std::endl;
+//        std::cout << "number"<< passByReference << " " << number << std::endl;
+//        passByReference += 1;
+//    });
+//}
+
+
+//Lambda function
+//void sayBomDia(){
+//    std::cout << "Bom Dia!!!" <<std::endl;
+//}
+//
+//void saySobBekheir(){
+//    std::cout << "Sob Bekheir!!!" <<std::endl;
+//}
+//
+//void sayGoodMorning(std::string name , std::function<void()> func){
+//    std::cout << "hello " << name << std::endl;
+//    func();
+//}
+//
+//int main(){
+//
+//    sayGoodMorning("Jose" , sayBomDia);
+//    sayGoodMorning("Hamed" , saySobBekheir);
+//
+//
+//}
+
+//or
+//std::string sayBomDia(){
+//    return "Bom Dia!!!";
+//}
+//
+//std::string saySobBekheir(){
+//    return "Sob Bekheir!!!";
+//}
+//
+//void sayGoodMorning(std::string name , std::function<std::string()> func){
+//    std::cout << func() << " " << name << std::endl;
+//}
+//
+//int main(){
+
+//
+
+//    sayGoodMorning("Jose" , sayBomDia);
+//    sayGoodMorning("Hamed" , saySobBekheir);
+//
+//    //C way to creat a lambda or with pointers
+//    void(*CwayLambda)()=[](){
+//    std::cout << "I am Lambda" <<std::endl;
+//    };
+//
+//    //C++ way to creat a lambda
+//    std::function<void()> lambda = [](){
+//    std::cout << "I am Lambda" <<std::endl;
+//    };
+//    //C++ way to creat a lambda
+//    auto autoLambda = [](){
+//    std::cout << "I am auto type Lambda" <<std::endl;
+//    };
+//    lambda();
+    
+//    //another way with []
+//    sayGoodMorning("Hamed" , [](){
+//        return "sob bekheir";
+//    });
+    
+    
+//}

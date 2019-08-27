@@ -28,7 +28,7 @@ public:
         this->length = obj.length;
         this->width = obj.width;
     }
-    ~Rectangle(){}
+   
     
     //setters & getters
     void setLength(double length){
@@ -51,7 +51,15 @@ public:
     double surface(){
         return 2 * (this->length + this->width );
     }
+    
+     ~Rectangle(){}
 
+    friend std::ostream &operator << (std::ostream & os , const Rectangle &obj){
+        
+            os << "length : " << obj.length << std::endl
+                   << "width : " << obj.width << std::endl;
+            return os;
+    }
 };
 
 //Lambda function (you can creat different function easily)
@@ -66,6 +74,7 @@ int main(){
     std::vector<Rectangle> rectangles { Rectangle(4.0,5.0),Rectangle(2.0,6.1),Rectangle(7.3,2.5)};
     
     ForEach(rectangles, [](Rectangle rec){
+        std::cout << rec;
         std::cout << "area of rectangle : "<< rec.area() << std::endl;
         std::cout << "surface of rectangle : "<< rec.surface() << std::endl;
     });

@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -42,6 +43,14 @@ public:
     double getWidth(){
         return this->width;
     }
+    
+    //calculation of area & surface
+    double area(){
+        return this->length * this->width;
+    }
+    double surface(){
+        return 2 * (this->length + this->width );
+    }
 
 };
 
@@ -57,7 +66,8 @@ int main(){
     std::vector<Rectangle> rectangles { Rectangle(4.0,5.0),Rectangle(2.0,6.1),Rectangle(7.3,2.5)};
     
     ForEach(rectangles, [](Rectangle rec){
-        std::cout << "area of rectangle : "<< rec.getLength()* rec.getWidth() << std::endl;
+        std::cout << "area of rectangle : "<< rec.area() << std::endl;
+        std::cout << "surface of rectangle : "<< rec.surface() << std::endl;
     });
 }
 

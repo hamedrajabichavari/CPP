@@ -1,0 +1,59 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "functions.hpp"
+#include "moreFunctions.hpp"
+#include <vector>
+#include <ctype.h>
+#include <iomanip>
+#include "../OOP/Time.hpp"
+#include "../OOP/Account/Account.hpp"
+#include "../OOP/Person/Person.hpp"
+#include <sstream>
+#include <memory>
+
+class IceCream{
+private:
+    std::string flavor;
+public:
+    IceCream(){
+        this->flavor = "vanilla";
+        std::cout << "icecream is created with " << this->flavor << std::endl;
+    }
+    IceCream(std::string flavor){
+        this->flavor = flavor;
+        std::cout << "icecream is created with " << this->flavor << std::endl;
+    }
+    
+    std::string getFlavor(){
+        return this->flavor;
+    }
+    
+    void setFlavor(std::string flavor){
+        this->flavor = flavor;
+    }
+    
+    ~IceCream(){
+        std::cout << "icecream is melted : no more " << this->flavor << " left" << std::endl;
+    }
+    
+};
+int main (){
+    
+    std::unique_ptr<IceCream> ice1 = std::make_unique<IceCream>("strawbery");
+    std::unique_ptr<IceCream> ice2 = std::make_unique<IceCream>("mango");
+    std::unique_ptr<IceCream> ice3 = std::make_unique<IceCream>("bluebery");
+
+    //store these icecreams in one container
+
+    std::vector<std::unique_ptr<IceCream>> ices;
+
+    ices.push_back(std::move(ice1));
+    ices.push_back(std::move(ice2));
+    ices.push_back(std::move(ice3));
+
+    for(auto &icecream : ices){
+        std::cout <<icecream->getFlavor() << std::endl;
+
+    }
+}

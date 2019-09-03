@@ -1,0 +1,48 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "functions.hpp"
+#include "moreFunctions.hpp"
+#include <vector>
+#include <ctype.h>
+#include <iomanip>
+#include "../OOP/Time.hpp"
+#include "../OOP/Account/Account.hpp"
+#include "../OOP/Person/Person.hpp"
+#include <sstream>
+#include <memory>
+
+class IceCream{
+private:
+    std::string flavor;
+public:
+    IceCream(){
+        this->flavor = "vanilla";
+        std::cout << "icecream is with " << this->flavor << std::endl;
+    }
+    void setFlavor(std::string flavor){
+        this->flavor = flavor;
+    }
+    
+    std::string getFlavor(){
+        return this->flavor;
+    }
+    ~IceCream(){
+    std::cout << "icecream is melted " << std::endl;
+    }
+};
+int main (){
+    
+    //3 ways to creat an "unique pointer"
+    
+//    std::unique_ptr<IceCream>icecream { new IceCream()};
+//    std::unique_ptr<IceCream>icecream = std::make_unique<IceCream>();
+    auto icecream = std::make_unique<IceCream>(); //recommended
+    std::cout << "memory location of my object is: " << icecream.get() << std::endl;
+    
+    icecream->setFlavor ("chocolate");
+    std::cout << "flavor changed to " << icecream->getFlavor() << std::endl;
+    
+    icecream.reset();  //delete the unique pointer
+    std::cout << "icecream is melted " << std::endl;
+}

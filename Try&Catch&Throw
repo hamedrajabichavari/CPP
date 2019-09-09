@@ -1,0 +1,29 @@
+void function3(){
+    std::cout << "in function3 " << std::endl;
+    throw std::runtime_error{"runtime_error in function3"};
+}
+
+void function2(){
+    std::cout << "function3 is called inside function2 " << std::endl;
+    function3();
+    std::cout << "function2 ends " << std::endl;
+}
+
+void function1(){
+    std::cout << "function2 is called inside function1 " << std::endl;
+    function2();
+    std::cout << "function1 ends " << std::endl;
+}
+int main(){
+    
+    try{
+        std::cout << "function1 is called inside main " << std::endl;
+        function1();
+        
+        }
+    catch(const std::runtime_error &error){
+            std::cout << "exception occured" << std::endl;
+        std::cout << "exception handeled in main " << std::endl;
+        }
+    
+}

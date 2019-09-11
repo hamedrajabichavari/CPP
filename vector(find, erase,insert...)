@@ -129,10 +129,27 @@ int main(){
     vec1.clear();
     printVector(vec1);
     
+    std::vector<std::pair <std::string,double>> myMarks{
+        {"siamak" , 99.99},
+        {"sina" , 0.0},
+        {"eduardo" , 5},
+        {"hamed" , -100},
+        {"mariana" , 100},
+        {"jose" , 101},
+        {"daniel" , 1000},
+        
+    };
+    hr();
+    for(auto x : myMarks){
+        std::cout << x.first << " -> " << x.second << std::endl;
+    }
+    
 //    std::vector<int>vec2{1,2,3};
 //    printVector(vec2);
 //
 //    std::vector<double>vec3{};
 //    printVector(vec3);
-    
+ 
+    return 0;
 }
+

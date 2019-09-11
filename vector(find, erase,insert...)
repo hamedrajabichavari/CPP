@@ -44,7 +44,7 @@ int main(){
     
     printMessage("the size of vector is : " , vec1.size() );
     
-    //3 ways to find front element
+    
     printMessage("the front element of vector is : " , vec1.front() );
     printMessage("the front element of vector is : " , vec1[0] );
     printMessage("the front element of vector is : " , vec1.at(0) );

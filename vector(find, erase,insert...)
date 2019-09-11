@@ -1,0 +1,138 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "functions.hpp"
+#include "moreFunctions.hpp"
+#include <vector>
+#include <ctype.h>
+#include <iomanip>
+#include "../OOP/Time.hpp"
+#include "../OOP/Account/Account.hpp"
+#include "../OOP/Person/Person.hpp"
+#include "../OOP/Beer/Beer.hpp"
+#include <sstream>
+#include <memory>
+
+template <typename T>
+void printVector(std::vector<T>& vec) {
+    if (vec.empty()){
+        std::cout << "vector is empty" <<std::endl;
+    }
+    for(T &element : vec) {
+        std::cout <<element <<std::endl;
+    }
+};
+
+template <typename T1,typename T2>
+void printMessage(T1 a , T2 b) {
+        std::cout << a << b << std::endl;
+};
+
+void hr(){
+    std::cout << "-------------------" << std::endl;
+};
+    
+int main(){
+    std::vector<std::string>vec1{"eduardo","siamak","sina","jose","mariana"};
+    printVector(vec1);
+    //size of vector
+    std::cout << "the size of vector is : " << vec1.size() << std::endl;
+    //front element in vector
+    std::cout << "the front element of vector is : " << vec1.front() << std::endl;
+    //back element in vector
+    std::cout << "the front element of vector is : " << vec1.back() << std::endl;
+    
+    printMessage("the size of vector is : " , vec1.size() );
+    
+    //3 ways to find front element
+    printMessage("the front element of vector is : " , vec1.front() );
+    printMessage("the front element of vector is : " , vec1[0] );
+    printMessage("the front element of vector is : " , vec1.at(0) );
+    
+    printMessage("the back element of vector is : " , vec1.back() );
+    hr();
+    
+    //print the specific element
+    std::cout << vec1.at(3) << std::endl;
+    
+    //insert element
+    hr();
+    vec1.insert(vec1.begin()+1 ,"saygin");
+    vec1.insert(vec1.end() ,"saygin");
+    printVector(vec1);
+    
+    hr();
+    //erase element
+    vec1.erase(vec1.begin()+1);
+    printVector(vec1);
+    
+    hr();
+    vec1.erase(vec1.begin()+1 , vec1.end()-2 );
+    printVector(vec1);
+    
+    //insert element
+    hr();
+    vec1.insert(vec1.begin()+2 ,{"siamak","sina","jose"});
+    printVector(vec1);
+    
+    //pop_back
+    hr();
+    vec1.pop_back();
+    printVector(vec1);
+    
+    //push_back
+    hr();
+    vec1.push_back("saygin");
+    printVector(vec1);
+    
+    //sort elements
+    hr();
+    std::sort(vec1.begin(),vec1.end());
+    printVector(vec1);
+    
+    //reverse vector
+    hr();
+    std::reverse(vec1.begin(),vec1.end());
+    printVector(vec1);
+    
+    //copy constructor (copy of vector)
+    hr();
+    std::vector<std::string> myCopy (vec1);
+    printVector(myCopy);
+    
+    //move vector(delete first one and make new one)
+    hr();
+    std::vector<std::string> moveMyCopy(std::move(myCopy));
+    printVector(myCopy);
+    hr();
+    printVector(moveMyCopy);
+    
+    //find element and then delete it
+    hr();
+    auto thePosition = std::find(vec1.begin(), vec1.end(),"siamak");
+//    std::cout << &thePosition << std::endl;
+//    std::cout << *thePosition << std::endl;
+    vec1.erase(thePosition);
+    printVector(vec1);
+    
+    //find element and then uppercase
+    hr();
+    auto thePosition1 = std::find(vec1.begin(), vec1.end(),"saygin");
+    if(thePosition1 != vec1.end()){
+        *thePosition1 = "SAYGIN";
+    }
+    printVector(vec1);
+
+    
+    //clear the vector
+    hr();
+    vec1.clear();
+    printVector(vec1);
+    
+//    std::vector<int>vec2{1,2,3};
+//    printVector(vec2);
+//
+//    std::vector<double>vec3{};
+//    printVector(vec3);
+    
+}

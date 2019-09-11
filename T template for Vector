@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "functions.hpp"
+#include "moreFunctions.hpp"
+#include <vector>
+#include <ctype.h>
+#include <iomanip>
+#include "../OOP/Time.hpp"
+#include "../OOP/Account/Account.hpp"
+#include "../OOP/Person/Person.hpp"
+#include "../OOP/Beer/Beer.hpp"
+#include <sstream>
+#include <memory>
+
+template <typename T>
+void printVector(std::vector<T>& vec) {
+    if (vec.empty()){
+        std::cout << "vector is empty" <<std::endl;
+    }
+    for(T &element : vec) {
+        std::cout <<element <<std::endl;
+    }
+};
+    
+int main(){
+    std::vector<std::string>vec1{"a","b","c"};
+    printVector(vec1);
+    
+    std::vector<int>vec2{1,2,3};
+    printVector(vec2);
+    return 0;
+}

@@ -6,11 +6,7 @@
 //  Copyright © 2019 Rajabi Chavari, Hamed. All rights reserved.
 //
 
-//#include "functions.hpp"
-//#include "moreFunctions.hpp"
 #include <iostream>
-//#include "../OOP/Beer/Beer.hpp"
-//#include <list>
 #include <stdexcept>
 #include <vector>
 #include <string>
@@ -52,21 +48,21 @@ std::string printDay(int day){
     
 }
 
-void calculateAge(int bday, int bmonth , int byear){
-    
-    
-    if(bday < 0){
-        throw std::logic_error("day must be positive");
-    }
-    if(bmonth < 0){
-        throw std::logic_error("month must be positive");
-    }
-    if(byear < 0){
-        throw std::logic_error("year must be positive");
-    }
-    
-    std::cout << "the age is : " << byear << " years and " << bmonth << " months and " << bday <<" days old"<< std::endl;
-}
+//void calculateAge(int bday, int bmonth , int byear){
+//
+//
+//    if(bday < 0){
+//        throw std::logic_error("day must be positive");
+//    }
+//    if(bmonth < 0){
+//        throw std::logic_error("month must be positive");
+//    }
+//    if(byear < 0){
+//        throw std::logic_error("year must be positive");
+//    }
+//
+//    std::cout << "the age is : " << byear << " years and " << bmonth << " months and " << bday <<" days old"<< std::endl;
+//}
 
 int main() {
     
@@ -93,50 +89,15 @@ int main() {
         std::cout << printWeekDay(timeinfo->tm_wday) << std::endl; // week day - monday tuesday
         std::cout << timeinfo->tm_yday << std::endl; // day of the year
         
-        calculateAge(3,5,1990);
-        Date date(2,-2,2015);
+        
+        Date date(2,3,2015);
         date.whatDateIsIt();
+        date.calculateAge();
         
         
     } catch (std::logic_error &ex) {
         std::cout << "ERROR : " << ex.what() << std::endl;
     }
-    
-    
-    
-//    try {
-//        std::cout << "function1 is called inside main" << std::endl;
-//        function1(); // call function1 which throws runtime_error
-//    }
-//    catch (const std::runtime_error& error) { // handle runtime error
-//        std::cout << "Exception occurred: " <<  std::endl;
-//        std::cout << "Exception handled in main" << std::endl;
-//    }
-//    std::cout << "bye" << std::endl;
-//
-//
-//    while(true){
-//        try{
-//            std::cout << "how many kilometers you have travelled? " << std::endl;
-//            double km;
-//            std::cin >> km;
-//            std::cout << "how many lites of fuel you have filled?" << std::endl;
-//            double liters;
-//            std::cin >> liters;
-//            calculateFuelConsumption(km, liters); // error
-//        } catch (std::invalid_argument &ex){
-//            std::cout << ex.what() <<std::endl;
-//        } catch(std::logic_error &ex){
-//            std::cout << ex.what() <<std::endl;
-//        } catch(...){
-//            std::cout << " something is really wrong " <<std::endl;
-//        }
-//    }
-    
-    
-    
-
-    
     
 }
 

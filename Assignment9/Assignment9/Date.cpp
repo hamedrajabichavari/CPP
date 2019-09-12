@@ -98,23 +98,6 @@ Date::Date(int day, int month, int year){
                 throw std::invalid_argument("regular years have 29days in february,so day must be between 1 and 28");
             }
                 }
-        
-        
-        
-        
-//        if(year % 4 == 0 && year % 100 == 0 && year % 400 == 0){
-//            if(day > 0 && day <= 29){
-//                this->day = day;
-//            } else{
-//                throw std::invalid_argument("leap year has 29days in february,so day must be between 1 and 29");
-//            }
-//        }else{
-//            if(day > 0 && day <= 28){
-//                this->day = day;
-//            } else{
-//                throw std::invalid_argument("february has maximum 28days,so day must be between 1 and 28");
-//            }
-//        }
     }
     if(month > 0 && month <= 12){
         this->month = month;
@@ -200,5 +183,18 @@ void Date::whatDateIsIt(){
         formattedYear = "0" + std::to_string(year);
     }
     std::cout << formattedDay << "/" << formattedMonth << "/" << formattedYear << std::endl;
+}
+
+void Date::calculateAge(){
+    
+    time_t rawtime;
+    struct tm * timeinfo;
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
+    
+    std::cout << "the Age is : " <<(timeinfo->tm_year+1900)-year   << " years and " <<  (timeinfo->tm_mon)-month  << " months and " << (timeinfo->tm_mday)-day  << " days old" << std::endl;
+    
+    
+    
 }
 

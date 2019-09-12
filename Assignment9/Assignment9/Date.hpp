@@ -42,5 +42,6 @@ public:
     ~Date();
     
     void whatDateIsIt();
+    void calculateAge();
 };
 #endif /* Date_hpp */

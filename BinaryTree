@@ -1,0 +1,70 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "functions.hpp"
+#include "moreFunctions.hpp"
+#include <vector>
+#include <ctype.h>
+#include <iomanip>
+#include "../OOP/Time.hpp"
+#include "../OOP/Account/Account.hpp"
+#include "../OOP/Person/Person.hpp"
+#include "../OOP/Beer/Beer.hpp"
+#include <sstream>
+#include <memory>
+
+class Node{
+    Node * left;
+    Node * right;
+    int data;
+public:
+    Node(int val){
+        data = val;
+        left = nullptr;
+        right = nullptr;
+    }
+
+void insert(int val){
+    if(val <= data){
+        if(left != nullptr){
+            left->insert(val);
+        }else{
+            left = new Node(val);
+        }
+    }
+    
+    if(val > data){
+        if(right != nullptr){
+            right->insert(val);
+        }else{
+            right = new Node(val);
+        }
+    }
+}
+
+
+void printBinaryTree(){
+     if(left != nullptr){
+         left->printBinaryTree();
+     }
+         std::cout << data << " " ;
+     
+    if(right != nullptr){
+        right->printBinaryTree();
+    }
+    
+}
+};
+int main(){
+    Node *newNode = new Node(7);
+    newNode->insert(4);
+    newNode->insert(8);
+    newNode->insert(10);
+    newNode->insert(21);
+    newNode->insert(3);
+    
+    newNode->printBinaryTree();
+    
+    return 0;
+}
+
